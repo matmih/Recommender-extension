@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<operators name="recommendation" version="5.0" docbundle="com/rapidminer/resources/i18n/Recommendation">
+   <group key="">
+            	<group key="recommenders">
+            	<group key="ir">
+            	<group key="cfir">
+            	<icon>lightbulb.png</icon>
+            	 <operator>
+                  <key>random</key>
+                  <class>com.rapidminer.ItemRecommendation.RandomO</class>
+               </operator>
+            	<operator>
+                  <key>most_popular</key>
+                  <class>com.rapidminer.ItemRecommendation.MostPopularO</class>
+               </operator>
+            	<operator>
+                  <key>user_k-NN</key>
+                  <class>com.rapidminer.ItemRecommendation.UserKnn</class>
+               </operator>
+                 <operator>
+                  <key>item_k-NN</key>
+                  <class>com.rapidminer.ItemRecommendation.ItemKnn</class>
+               </operator>
+               <operator>
+                  <key>biased_matrix_factorization</key>
+                  <class>com.rapidminer.ItemRecommendation.BPRMatrixFactorization</class>
+               </operator>
+               <operator>
+                  <key>weighted_regularized_matrix_factorization</key>
+                  <class>com.rapidminer.ItemRecommendation.WRMatrixFactorization</class>
+               </operator>
+               </group>
+               <group key="abir">
+               <icon>lightbulb.png</icon>
+                 <operator>
+            	<key>user_attribute_k-NN</key>
+            	<class>com.rapidminer.ItemRecommendation.UserAttributeKnnO</class>
+            	</operator>
+               	<operator>
+            	<key>item_attribute_k-NN</key>
+            	<class>com.rapidminer.ItemRecommendation.ItemAttributeKnnO</class>
+            	</operator>
+            	</group>
+            	</group>
+            	<group key="irp">
+            	<group key="cfrp">
+            	<icon>lightbulb.png</icon>
+            	 <operator>
+            	 <key>random_rp</key>
+               <class>com.rapidminer.operator.RatingPrediction.RandomO</class>
+               </operator>
+                 	 <operator>
+            	 <key>global_average</key>
+               <class>com.rapidminer.operator.RatingPrediction.GlobalAverageO</class>
+               </operator>
+            	 <operator>
+            	 <key>user_item_baseline</key>
+               <class>com.rapidminer.operator.RatingPrediction.UserItemBaselineO</class>
+               </operator>
+               <operator>
+               <key>user_k-NN_rp</key>
+               <class>com.rapidminer.operator.RatingPrediction.UserKnn</class>
+               </operator>
+               <operator>
+            	<key>item_k-NN_rp</key>
+            	<class>com.rapidminer.operator.RatingPrediction.ItemKnn </class>
+            	</operator>
+            	<operator>
+            	<key>slope_one</key>
+            	<class>com.rapidminer.operator.RatingPrediction.SlopeOne </class>
+            	</operator>
+            	<operator>
+            	<key>bi_polar_slope_one</key>
+            	<class>com.rapidminer.operator.RatingPrediction.CF_BiPolarSlopeOne </class>
+            	</operator>
+            	 <operator>
+                  <key>matrix_factorization</key>
+                  <class>com.rapidminer.operator.RatingPrediction.MatrixFO</class>
+               </operator>
+               <operator>
+               <key>biased_matrix_factorization_rp</key>
+               <class>com.rapidminer.operator.RatingPrediction.BMF</class>
+               </operator>
+               <operator>
+               <key>factor_wise_matrix_factorization</key>
+               <class>com.rapidminer.operator.RatingPrediction.CF_FWMF</class>
+               </operator>
+               </group>
+               <group key="abrp">
+               <icon>lightbulb.png</icon>
+                <operator>
+                <key>user_attribute_k-NN_rp</key>
+               <class>com.rapidminer.operator.RatingPrediction.UserAttributeKnnO</class>
+               </operator>
+            	 <operator>
+               <key>item_attribute_k-NN_rp</key>
+               <class>com.rapidminer.operator.RatingPrediction.ItemAttributeKnnO</class>
+               </operator>
+               </group>
+               </group>
+            	<group key="rper">
+            	<group key="ma">
+            	<icon>lightbulb_on.png</icon>
+                <operator>
+               <key>apply_model_ir</key>
+               <class>com.rapidminer.ItemRecommendation.ApplyModel</class>
+               </operator>
+                <operator>
+               <key>apply_model_rp</key>
+               <class>com.rapidminer.operator.RatingPrediction.ApplyModel</class>
+               </operator>
+               <operator>
+                <icon>link_add.png</icon>
+               <key>model_combiner_ir</key>
+               <class>com.rapidminer.operator.ansamble.ModelCombiner1</class>
+               </operator>
+               <operator>
+                <icon>link_add.png</icon>
+               <key>model_combiner_rp</key>
+               <class>com.rapidminer.operator.ansamble.ModelCombiner</class>
+               </operator>
+            	</group>
+            	<group key="pe">
+            	<icon>symbol_percent.png</icon>
+            	<operator>
+               <key>performance_item_recommendation</key>
+               <class>com.rapidminer.ItemRecommendation.Eval</class>
+               </operator>
+            	<operator>
+               <key>performance_rating_prediction</key>
+               <class>com.rapidminer.operator.RatingPrediction.Evaluate</class>
+               </operator>
+            	</group>
+            	</group>
+           </group>
+   </group>
+</operators>

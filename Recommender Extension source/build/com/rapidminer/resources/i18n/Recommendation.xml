@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<operatorHelp lang="en_EN">
+
+<group>
+      <key/>
+      <name>Core</name>
+   </group>
+
+  <group>
+      <key>recommenders</key>
+      <name>Recommender Systems</name>
+   </group>
+   
+     <group>
+      <key>recommenders.ir</key>
+      <name>Item Recommendation</name>
+   </group>
+   
+   <group>
+      <key>recommenders.ir.cfir</key>
+      <name>Collaborative Filtering based Item Recommendation</name>
+   </group>
+   
+    <group>
+      <key>recommenders.ir.abir</key>
+      <name>Attribute based Item Recommendation</name>
+   </group>
+   
+    <group>
+      <key>recommenders.irp</key>
+      <name>Item Rating Prediction</name>
+   </group>
+
+ <group>
+      <key>recommenders.irp.cfrp</key>
+      <name>Collaborative Filtering based Rating Prediction</name>
+   </group>
+   
+	<group>
+      <key>recommenders.irp.abrp</key>
+      <name>Attribute based Rating Prediction</name>
+   </group>
+   
+	<group>
+      <key>recommenders.rper</key>
+      <name>Recommender Performance</name>
+   </group>
+
+   
+   	<group>
+      <key>recommenders.rper.ma</key>
+      <name>Model Application</name>
+   </group>
+   
+   	<group>
+      <key>recommenders.rper.pe</key>
+      <name>Performance Evaluation</name>
+   </group>
+
+
+<operator>
+<name>Random</name>
+<synopsis> Random method for rating prediction </synopsis>
+<help>This operator gives random ratings to items (just for comparison) </help>
+<key>random_rp</key>
+</operator>
+
+<operator>
+<name>Global Average</name>
+<synopsis> Global average method for rating prediction </synopsis>
+<help>Uses the average rating value over all ratings for prediction</help>
+ <key>global_average</key>
+</operator>
+
+<operator>
+<name>User Item Baseline</name>
+<synopsis> Baseline method for rating prediction </synopsis>
+<help>Uses the average rating value, plus a regularized user and item bias for prediction.
+ The method is described in section 2.1 of Yehuda Koren: Factor in the Neighbors: Scalable and Accurate Collaborative Filtering,
+ Transactions on Knowledge Discovery from Data (TKDD), 2009.  One difference is that this operator supports several iterations of alternating optimization,
+ instead of just one. </help>
+ <key>user_item_baseline</key>
+</operator>
+
+<operator>
+<name>User k-NN</name>
+<synopsis> User KNN operator for rating prediction </synopsis>
+<help> Weighted user-based KNN with cosine/Pearson similarity </help>
+<key>user_k-NN_rp</key>
+</operator>
+
+<operator>
+<name>Item k-NN</name>
+<synopsis> Item KNN operator for rating prediction </synopsis>
+<help> Weighted item-based KNN with cosine/Pearson similarity </help>
+<key>item_k-NN_rp</key>
+</operator>
+
+<operator>
+<name>Matrix Factorization</name>
+<synopsis> Simple matrix factorization operator for rating prediction </synopsis>
+<help> Factorizing the observed rating values using a factor matrix for users and one for items.
+     NaN values in the model occur if values become too large or too small to be represented by the type double.
+	 If you encounter such problems, there are three ways to fix them:
+     (1) (preferred) Use BiasedMatrixFactorization, which is more stable.
+     (2) Change the range of rating values (1 to 5 works generally well with the default settings).
+     (3) Change the learn_rate (decrease it if your range is larger than 1 to 5). </help>
+     <key>matrix_factorization</key>
+     <shortName>MF</shortName>
+</operator>
+
+<operator>
+<name>Biased Matrix Factorization</name>
+<synopsis> Matrix factorization with explicit user and item bias </synopsis>
+<help> Operator supports using bold driver heuristics for learning rate adaption. See Rainer Gemulla, Peter J. Haas, Erik Nijkamp, Yannis Sismanis:
+		 Large-Scale Matrix Factorization with Distributed Stochastic Gradient Descent, 2011 </help>
+		 <key>biased_matrix_factorization_rp</key>
+		 <shortName>BMF</shortName>
+</operator>
+
+<operator>
+<name>Factor Wise Matrix Factorization</name>
+<synopsis> Matrix factorization with factor-wise learning </synopsis>
+<help> See: Robert Bell, Yehuda Koren, Chris Volinsky:
+	Modeling Relationships at Multiple Scales to Improve Accuracy of Large Recommender Systems,
+	ACM Int. Conference on Knowledge Discovery and Data Mining (KDD'07), 2007. </help>
+	<key>factor_wise_matrix_factorization</key>
+	<shortName>FWMF</shortName>
+</operator>
+
+<operator>
+<name>Slope One</name>
+<synopsis> Frequency-weighted Slope-One rating prediction </synopsis>
+<help> See:  
+	 Daniel Lemire, Anna Maclachlan: 
+	 Slope One Predictors for Online Rating-Based Collaborative Filtering. 
+	 SIAM Data Mining (SDM 2005)
+	 http://www.daniel-lemire.com/fr/abstracts/SDM2005.html </help>
+	 <key>slope_one</key>
+</operator>
+
+<operator>
+<name>Bi-Polar Slope One</name>
+<synopsis> Bi-polar frequency-weighted Slope-One rating prediction</synopsis>
+<help> See:
+	 Daniel Lemire, Anna Maclachlan:
+	 Slope One Predictors for Online Rating-Based Collaborative Filtering.
+	 SIAM Data Mining (SDM 2005)
+	 http://www.daniel-lemire.com/fr/abstracts/SDM2005.html </help>
+	 <key>bi_polar_slope_one</key>
+	 <shortName>BP Slope One</shortName>
+</operator>
+
+<operator>
+<name>Most Popular</name>
+<synopsis> Most-popular item recommender </synopsis>
+<help> Items are weighted by how often they have been seen in the past. </help>
+<key>most_popular</key>
+</operator>
+<operator>
+<name>Random</name>
+<synopsis> Random item recommender </synopsis>
+<help>Random item recommender for use as experimental baseline </help>
+<key>random</key>
+</operator>
+<operator>
+<name>User k-NN</name>
+<synopsis> User k-NN operator for item recommendation </synopsis>
+<help> Unweighted k-nearest neighbor user-based collaborative filtering using cosine similarity </help>
+<key>user_k-NN</key>
+</operator>
+
+<operator>
+<name>Item k-NN</name>
+<synopsis> Item KNN operator for item recommendation </synopsis>
+<help> Unweighted k-nearest neighbor item-based collaborative filtering using cosine similarity </help>
+<key>item_k-NN</key>
+</operator>
+
+<operator>
+<name>Bayesian Personalized Ranking Matrix Factorization</name>
+<synopsis> Matrix factorization model for item prediction optimized using BPR-Opt </synopsis>
+<help> See: 
+		Steffen Rendle, Christoph Freudenthaler, Zeno Gantner, Lars Schmidt-Thieme:
+	    BPR: Bayesian Personalized Ranking from Implicit Feedback.
+	    Proceedings of the 25th Conference on Uncertainty in Artificial Intelligence (UAI 2009),
+	    Montreal, Canada, 2009. </help>
+	    <key>biased_matrix_factorization</key>
+	    <shortName>BPRMF</shortName>
+</operator>
+
+<operator>
+<name>Weighted Regularized Matrix Factorization</name>
+<synopsis> Weighted matrix factorization method proposed by Hu et al. and Pan et al. </synopsis>
+<help>See: 
+       Y. Hu Y. Koren C. Volinsky: Collaborative filtering for implicit feedback datasets,
+       IEEE International Conference on Data Mining (ICDM), 2008
+	   R. Pan, Y. Zhou, B. Cao, N. N. Liu, R. M. Lukose, M. Scholz, Q. Yang:
+	   One-class collaborative filtering,
+	   IEEE International Conference on Data Mining (ICDM), 2008</help>
+	   <key>weighted_regularized_matrix_factorization</key>
+	   <shortName>WRMF</shortName>
+</operator>
+
+<operator>
+<name>Apply Model (Rating Prediction)</name>
+<synopsis> Applies a rating prediction model to an example set. </synopsis>
+<help> This operator applies a Model to an ExampleSet. Model contains information about the data he
+has been trained on. This information is used for predicting the rating value. All needed parameters are 
+stored within the model object. Please pay attention to the fact, that the application of Models will need 
+the same attributes during application on an ExampleSet that where part of the ExampleSet it was trained on. </help>
+ <key>apply_model_rp</key>
+ <shortName>Apply Model</shortName>
+</operator>
+
+<operator>
+<name>Apply Model (Item Recommendation)</name>
+<synopsis>  Recommends items for every user in a test set. </synopsis>
+<help>This operator applies a Item Recommendation model to an ExampleSet. Model contains information about the data he
+has been trained on. This information is used for recommending new items to users. A list of recommended items with their ranks is created.
+Please pay attention to the fact, that the application of Models will need the same attributes during application on an ExampleSet that where part 
+of the ExampleSet it was trained on.</help>
+ <key>apply_model_ir</key>
+ <shortName>Apply Model</shortName>
+</operator>
+
+<operator>
+<name>Performance (Rating Prediction)</name>
+<synopsis> Measures performanse of a Rating prediction model</synopsis>
+<help> Calculates Root mean square error (RMSE),  Mean absolute error (MAE) and Normalized mean absolute error (NMAE)  </help>
+<key>performance_rating_prediction</key>
+<shortName>Performance</shortName>
+</operator>
+
+<operator>
+<name>Performance (Item Recommendation)</name>
+<synopsis> Measures performanse of a Item Recommendation model</synopsis>
+<help> Calculates Area under the curve (AUC), Precision @K (prec@k), Normalized discounted
+cumulative gain (NDCG) and Mean average precision (MAP)  </help>
+ <key>performance_item_recommendation</key>
+ <shortName>Performance</shortName>
+</operator>
+
+
+<operator>
+<name>Item Attribute k-NN</name>
+<synopsis> Item-Attribute KNN operator for Rating Prediction </synopsis>
+<help> Attribute-aware weighted item-based Knn recommender </help>
+<key>item_attribute_k-NN_rp</key>
+</operator>
+
+<operator>
+<name>User Attribute k-NN</name>
+<synopsis> User-Attribute KNN operator for Rating Prediction </synopsis>
+<help> Attribute-aware weighted user-based Knn recommender </help>
+<key>user_attribute_k-NN_rp</key>
+</operator>
+
+<operator>
+<name>Item Attribute k-NN</name>
+<synopsis> Item-Attribute KNN operator for Item Recommendation </synopsis>
+<help> k-nearest neighbor item-based collaborative filtering using cosine-similarity over the item attibutes </help>
+<key>item_attribute_k-NN</key>
+</operator>
+<operator>
+<name>User Attribute k-NN</name>
+<synopsis> User-Attribute KNN operator for Item Recommendation </synopsis>
+<help> k-nearest neighbor user-based collaborative filtering using cosine-similarity over the user attibutes </help>
+<key>user_attribute_k-NN</key>
+</operator>
+<operator>
+<name>Model Combiner (Rating Prediction)</name>
+<synopsis>Combines predictions of all input models and returns weighted average prediction. </synopsis>
+<help> Model combiner combines input models predictions and returns weighted average prediction. </help>
+<key>model_combiner_rp</key>
+<shortName>Model Combiner</shortName>
+</operator>
+<operator>
+<name>Model Combiner (Item Recommendation)</name>
+<synopsis>Groups the input models into a single combined model. </synopsis>
+<help> This operator groups all input models together into a grouped (combined) model. This model can be completely applied on new data. 
+Operator returns weighted average score of each of the input models.  </help>
+<key>model_combiner_ir</key>
+<shortName>Model Combiner</shortName>
+</operator>
+</operatorHelp>
