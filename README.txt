@@ -15,6 +15,6 @@ Project Leader:
 Tomislav Smuc, <smuc@irb.hr>
 
 Cite work as:
-Mihelcic, M., Antulov-Fantulin, N., Bosnjak, M., Smuc, T., Extending RapidMiner 
-with recommender systems algorithms, Accepted to RapidMiner Community 
-Meeting and Conference 2012, Budapest, Hungary
+Mihelcic, M., Antulov-Fantulin, N., Bosnjak, M., Smuc, T., 
+Extending RapidMiner with recommender systems algorithms, 
+RapidMiner Community Meeting and Conference 2012, Budapest, Hungary
