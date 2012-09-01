@@ -22,11 +22,16 @@ public class PredictItemsFast {
 		
 			PriorityQueue<WeightedItem> pq = new PriorityQueue<WeightedItem>(topk);
 			
-			
-			for (int i=0; i < topk; ++i){
+			int cnt=0;
+			for (int i=0; i < relevant_items.size(); ++i){
 				int item_id=relevant_items.get(i); 
+				if(consumedItems.contains(item_id)==false){
 				WeightedItem wi = new WeightedItem(item_id, recommender.Predict(user_id, item_id));
 				pq.add(wi);
+				cnt++;
+				if(cnt==topk)
+					break;
+				}
 			}
 			
 			double minScore = pq.element().weight;
