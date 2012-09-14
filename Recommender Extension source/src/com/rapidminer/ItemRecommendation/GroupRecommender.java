@@ -10,7 +10,6 @@ package com.rapidminer.ItemRecommendation;
 
 import java.util.LinkedList;
 import java.util.List;
-
 import com.rapidminer.operator.Annotations;
 import com.rapidminer.operator.IOObject;
 import com.rapidminer.operator.Operator;
@@ -27,6 +26,7 @@ public class GroupRecommender extends ItemRecommender{
 	List<ItemRecommender> recommenders;
 	List<Double> weightList;
 	double defaultWeight;
+
 	
 	public void SetDWeight(double value){
 		defaultWeight=value;
@@ -38,6 +38,8 @@ public class GroupRecommender extends ItemRecommender{
 	
 	public void SetRecommenders(List<ItemRecommender> value){
 		recommenders=value;
+		user_mapping=recommenders.get(0).user_mapping;
+		item_mapping=recommenders.get(0).item_mapping;
 	}
 	
 	
@@ -76,9 +78,10 @@ public class GroupRecommender extends ItemRecommender{
 	}
 	
 	public double Predict(int user_id, int item_id){
+		
 		double score=0;
 		double weightSum=0;
-		
+
 		if(weightList.size()<=recommenders.size()){
 		for(int i=0;i<weightList.size();i++){
 			score+=recommenders.get(i).Predict(user_id, item_id)* Double.valueOf(weightList.get(i));
