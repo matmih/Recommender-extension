@@ -77,6 +77,23 @@ public class GroupRecommender extends ItemRecommender{
 			recommenders.get(i).RetrainItems(items);
 	}
 	
+	int AddFeedbacks(List<Integer> users,List<Integer> items){
+		
+		if(users==null || items==null)
+			return 1;
+		
+		if(users.size()!=0){
+		  
+			for(int i=0;i<recommenders.size();i++){
+				 recommenders.get(i).feedback=this.feedback;
+				 recommenders.get(i).AddFeedbacks(users, items);	 
+			}
+		}
+		
+		return 1;
+		
+	}
+	
 	public double Predict(int user_id, int item_id){
 		
 		double score=0;
