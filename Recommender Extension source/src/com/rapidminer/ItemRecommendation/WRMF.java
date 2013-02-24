@@ -251,7 +251,7 @@ public class WRMF extends MF{
 		public void AddItems(List<Integer> items)
 		{
 			if(items.size()!=0){
-			super.AddUsers(items);
+			super.AddItems(items);
 			Matrix im=new Matrix(MaxItemID + 1, GetNumFactors());
 			MatrixUtils.RowInitNormal(item_factors, InitMean, InitStdev);
 			

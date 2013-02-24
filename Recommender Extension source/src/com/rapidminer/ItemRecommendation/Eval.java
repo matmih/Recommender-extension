@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.rapidminer.data.EntityMapping;
+//import com.rapidminer.data.EntityMapping;
 import com.rapidminer.data.IEntityMapping;
 import com.rapidminer.data.IPosOnlyFeedback;
 import com.rapidminer.data.PosOnlyFeedback;
@@ -138,8 +138,8 @@ public class Eval extends Operator {
 		
 					 IPosOnlyFeedback train_data=new PosOnlyFeedback();
 					 IPosOnlyFeedback test_data=new PosOnlyFeedback();
-					 IEntityMapping user_mapping=new EntityMapping();
-					 IEntityMapping item_mapping=new EntityMapping();
+					 IEntityMapping user_mapping=model.user_mapping;//new EntityMapping();
+					 IEntityMapping item_mapping=model.item_mapping;//new EntityMapping();
 					
 
 					for (Example example : exampleSet) {

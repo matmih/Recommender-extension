@@ -32,13 +32,15 @@ public class WeightedItem implements Comparable<WeightedItem>
 	///
 	public int compareTo(WeightedItem o)
 	{
-		
-		if(this==o || this.weight==o.weight){
-			if(r.nextInt(5)<=3)
+		if(this==o)
+			return 0;
+		else if(this!=o && (this.weight==o.weight)){
+			/*if(r.nextInt(5)<=3)
 			return 1;
-			else return -1;
+			else return -1;*/
+			return 0;
 		}
-		else if(this.weight>o.weight)
+		else if(this!=o && (this.weight>o.weight))
 			return 1; 
 		else 
 			return -1; 

@@ -118,7 +118,9 @@ public class GroupRecommender extends ItemRecommender{
 			
 		}
 		
+		if(weightSum>0)
 		return score/weightSum;
+		else return 0;
 	}
 	
 	public  void SaveModel(String file)

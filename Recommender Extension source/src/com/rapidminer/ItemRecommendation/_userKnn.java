@@ -86,6 +86,7 @@ public class _userKnn extends Knn {
 				
 				for(int i1=0;i1<items.size();i1++)//should be item sorted
 				{
+					
 					List<Integer> row = ((IBooleanMatrix) transpose).GetEntriesByRow(items.get(i1));
 					if(prevus!=users.get(i1))
 						 viewed.clear();

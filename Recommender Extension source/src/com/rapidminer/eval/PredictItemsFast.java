@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 /**
 @autor Nino-Antulov Fantulin (Ruðer Boškoviæ Institute) 05.02.2012.
+@edited Matej Mihelèiæ (Ruðer Boškoviæ Institute) 1.09.2012.
  */
 
 public class PredictItemsFast {

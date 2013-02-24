@@ -86,7 +86,8 @@ public class ItemAttributeKnnO extends Operator{
 					 IPosOnlyFeedback training_data=new PosOnlyFeedback();
 					 IEntityMapping user_mapping=new EntityMapping();
 					 IEntityMapping item_mapping=new EntityMapping();
-					
+					 IEntityMapping attribute_mapping=new EntityMapping();
+					 
 					 if (exampleSet.getAttributes().getSpecial("user identification") == null) {
 				            throw new UserError(this,105);
 				        }
@@ -143,7 +144,7 @@ public class ItemAttributeKnnO extends Operator{
 					int iid=item_mapping.ToInternalID((int) j);
 					
 					j=example.getValue(at);
-					int aid=(int)j;
+					int aid=attribute_mapping.ToInternalID((int)j);
 				
 					mat.setLocation(iid, aid, true);
 				}
