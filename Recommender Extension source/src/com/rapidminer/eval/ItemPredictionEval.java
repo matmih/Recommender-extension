@@ -69,13 +69,13 @@ public class ItemPredictionEval
 		double prec_15_sum = 0;
 		double ndcg_sum    = 0;
 		int num_users      = 0;
-
+		
 		for(int i1=0;i1<relevant_users.size();i1++){
 			
 		int user_id=relevant_users.get(i1);
 			com.rapidminer.data.CompactHashSet<Integer> correct_items = new com.rapidminer.data.CompactHashSet<Integer>(test.GetUserMatrix().getLocation(user_id));
 			correct_items.retainAll(relevant_items);
-			
+	
 			// the number of items that are really relevant for this user
 			com.rapidminer.data.CompactHashSet<Integer> relevant_items_in_train = new com.rapidminer.data.CompactHashSet<Integer>(train.GetUserMatrix().getLocation(user_id));
 			relevant_items_in_train.retainAll(relevant_items);
@@ -88,6 +88,7 @@ public class ItemPredictionEval
 				continue;
 
 			num_users++;
+			
 			int[] prediction = ItemPrediction.PredictItems(recommender, user_id, relevant_items);
 
 			auc_sum     += AUC(prediction, correct_items, train.GetUserMatrix().getLocation(user_id));

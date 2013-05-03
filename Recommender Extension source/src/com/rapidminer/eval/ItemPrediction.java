@@ -54,8 +54,8 @@ public class ItemPrediction
 			result.add( new WeightedItem(item_id, recommender.Predict(user_id, item_id)));
 		}
 			
-		//Collections.sort(result);
-		//Collections.reverse(result);
+		Collections.sort(result);
+		Collections.reverse(result);
 		
 		int[] return_array = new int[result.size()];
 		for (int i = 0; i < return_array.length; i++)
