@@ -23,6 +23,7 @@ import com.rapidminer.tools.container.Tupel;
 *This file is originally part of MyMediaLite.
 
 *Ported by Matej Mihelcic (Ruðer Boškoviæ Institute) 01.08.2011
+*Iterative online updates created by Matej Mihelcic
 */
 
 public class _userKnn extends Knn {
